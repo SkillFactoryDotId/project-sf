@@ -1,0 +1,22 @@
+Terlampir link download aplikasi dan program yang dipakai di buku. 
+
+Idealnya aplikasi ini baru di download ketika sudah masuk ke pembahasan, karena tidak semuanya wajib di install. 
+
+Semua aplikasi ini gratis (free) dan untuk versi terbaru bisa di download dari web resminya.
+
+
+### XAMPP, untuk menjalankan kode PHP (wajib):
+
+* XAMPP 8.1.1, ukuran file 165MB : https://drive.google.com/file/d/1y3DjRFzKpl5jytXzafb2WTnTxk3Dltu2/view?usp=sharing
+
+
+### PHP Manual, berisi dokumentasi PHP yang bisa di download (opsional, tidak wajib):
+
+* PHP Manual: https://drive.google.com/file/d/1oiW9NllyHgJAK3Q2M2-l0VJkdNzSx6n1/view?usp=sharing
+
+
+### Teks editor, bisa pilih salah satu (disarankan Visual Studio Code, atau jika ingin yang ringan bisa ke Notepad++):
+
+* Visual Studio Code 1.65.2 (64bit), ukuran file 72 MB: https://drive.google.com/file/d/1lZ5bubNQBhC5lJDENt4QcLq82xjrZKyu/view?usp=sharing
+
+* Notepad++ 8.3.3 (64bit), ukuran file 4,2 MB: https://drive.google.com/file/d/1jMF_9peV82jvy1ux_sJ938ZdLADan3-v/view?usp=sharing
