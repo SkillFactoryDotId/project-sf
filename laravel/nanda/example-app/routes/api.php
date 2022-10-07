@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,4 +29,5 @@ Route::apiResource('users', UserController::class);
 
 Route::apiResource('employees', EmployeeController::class);
 
-Route::apiResource('absensi', AbsensiController::class);
+Route::apiResource('attendance', AttendanceController::class);
+  

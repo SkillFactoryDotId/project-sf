@@ -4,23 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Employee;
+use App\Models\Attendance;
 
-class EmployeeController extends Controller
+class AttendanceController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $datas = new Employee;
+    {   
+        $datas = new Attendance;
         if ($request->has('nama')) {
             $datas = $datas->where('name','like', '%'.$request->nama.'%');
         }
-        
-        $datas = $datas->paginate();
+
+        $datas = $datas->paginate(); 
         return response()->json($datas);
     }
 
@@ -41,19 +42,18 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'address' => 'required',
-            'age' => 'required',
-            'position' => 'required',
+            'total' => 'required',
         ]);
         
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
 
-        $data = Employee::orderBy('created_at', 'desc')->first();
+        $data = Attendance::orderBy('created_at', 'desc')->first();
 
         $id_number = null;
 
@@ -63,12 +63,11 @@ class EmployeeController extends Controller
             $id_number = 1 . date("mY") . $this->generateRandomString();
         }
 
-        $data = Employee::create([
+        $data = Attendance::create([
             'id_number' => $id_number,
             'name' => $request->name,
             'address' => $request->address,
-            'age' =>  $request->age,
-            'position' =>  $request->position,
+            'total' => $request->total,
         ]);
         return $data;
     }
@@ -81,7 +80,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $data = Employee::findOrFail($id);
+        $data = Attendance::findOrFail($id);
         return $data;
     }
 
@@ -90,7 +89,7 @@ class EmployeeController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */ 
+     */
     public function edit($id)
     {
         //
@@ -108,11 +107,14 @@ class EmployeeController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'address' => 'required',
-            'age' => 'required',
-            'position' => 'required',
+            'total' => 'required',
         ]);
+        
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
 
-        $data = Employee::orderBy('created_at', 'desc')->first();
+        $data = Attendance::orderBy('created_at', 'desc')->first();
 
         $id_number = null;
 
@@ -122,13 +124,12 @@ class EmployeeController extends Controller
             $id_number = 1 . date("mY") . $this->generateRandomString();
         }
 
-        $data = Employee::create([
+        $data = Attendance::create([
             'id_number' => $id_number,
             'name' => $request->name,
-            'email' => $request->email,
-            'age' =>  $request->age,
-            'position' =>  $request->position,
-        ]);
+            'address'  => $request->address,
+            'total' => $request->total,
+        ]); 
         return $data;
     }
 
@@ -140,7 +141,7 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        $data = Employee::findOrFail($id);
+        $data = Attendance::findOrFail($id);
         return $data->delete();
     }
 
@@ -152,5 +153,5 @@ class EmployeeController extends Controller
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
-    }
-};
+    } 
+}
